@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vendorapp/Screen/registration/registration.dart';
 
 import '../../Config/font.dart';
+import '../../Utils/progressDialog.dart';
 import '../../Utils/translate.dart';
 import '../../Utils/utilOther.dart';
 import '../../Utils/validate.dart';
@@ -72,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void ValidateSignIn(){
     UtilOther.hiddenKeyboard(context);
-    setState(() {
+    setState(() async {
         prefix="+91 ";
         _validMobile = UtilValidator.validate(
             data: _phoneNumberController.text,
@@ -81,9 +82,12 @@ class _LoginScreenState extends State<LoginScreen> {
         var number;
       if (_validMobile==""  ) {
         number="+91"+_phoneNumberController.text;
-        setState((){
-          loading=true;
-        });
+        await PsProgressDialog.showProgressWithoutMsg(
+            context);
+        // setState((){
+          // loading=true;
+
+        // });
         verifyPhoneNumber(context,number);
         // _loginBloc.add(OnLogin(custId: _textMobileController.text,custPwd: _textPasswordController.text,
         //     fcmToken: fcmToken));

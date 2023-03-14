@@ -11,6 +11,7 @@ import 'Screen/user/splash_screen.dart';
 import 'Utils/routes.dart';
 import 'Utils/translate.dart';
 import 'app_bloc.dart';
+import 'mainNavigation.dart';
 
 
 
@@ -73,7 +74,7 @@ class _AppState extends State<App> {
               }
               if (app is AuthenticationFail) {
                // return SignInPage();
-              //  return BottomNavigation(index: 0,);
+               return MainNavigation();
               }
               return SplashScreen();
 

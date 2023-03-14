@@ -98,8 +98,8 @@ class AppTextInput extends StatelessWidget {
             autofocus: true,
 
             enabled:enabled ,
-            textAlign: TextAlign.center,
-            textAlignVertical: TextAlignVertical.center,
+            // textAlign: TextAlign.center,
+            // textAlignVertical: TextAlignVertical.center,
             onSubmitted: onSubmitted,
             inputFormatters:inputFormatters,
             controller: controller,
